@@ -7,7 +7,6 @@ Cosine similarity is computed between the query and each transcript segment.
 A threshold cosine similarity score of 0.5 is used to determine whether a valid search result exists.
 
 Future Enhancements:
-
 Integrate OpenCV for frame extraction combined with an image captioning model such as BLIP to capture visual content and generate additional embeddings.
 For the bonus questions, I would Django Channels to create a WebSocket consumer that handles chat messages.
 For production deployment, the plan is to deploy on AWS and use mongodb to store the videos and use Elasticsearch for vector store and semantic search, with a potential upgrade to use Azure Video Indexer if the budget allows.
