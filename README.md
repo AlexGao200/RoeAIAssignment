@@ -23,21 +23,19 @@ This project allows users to upload a video, transcribe its content using OpenAI
   - A threshold cosine similarity score of **0.5** is used to determine whether a valid search result exists.
 
 ## Future Enhancements
-- **Frame Extraction & Captioning:**  
-  - Integrate OpenCV for frame extraction combined with an image captioning model such as BLIP to capture visual content and generate additional embeddings.
 - **Chat Interaction:**  
   - Use Django Channels to create a WebSocket consumer that handles chat messages.
 - **Production Deployment:**  
   - Deploy on AWS.
   - Use MongoDB to store videos.
   - Use Elasticsearch as the vector store for semantic search.
-  - Potential upgrade to use Azure Video Indexer if the budget allows.
 
 To build and run the project, execute:
 
 ```bash
-docker compose up --build
-
+docker compose up --build  
+```
+   
 The backend will be accessible on http://localhost:8000
 The frontend will be accessible on http://localhost:3000
 
