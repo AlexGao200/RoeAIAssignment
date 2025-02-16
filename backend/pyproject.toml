@@ -15,6 +15,10 @@ numba = "^0.61.0"
 openai-whisper = {git = "https://github.com/openai/whisper.git"}
 sentence-transformers = "^3.4.1"
 django-cors-headers = "^4.7.0"
+opencv-python-headless = "^4.11.0.86"
+transformers = "^4.48.3"
+torch = "^2.6.0"
+pillow = "^11.1.0"
 
 
 [build-system]

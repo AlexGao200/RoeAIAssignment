@@ -131,19 +131,20 @@ const MainPage = () => {
         </button>
         {searchMessage && <p className="message">{searchMessage}</p>}
         {searchResult ? (
-          <div className="search-result">
-            <p>
-              <strong>
-                {parseFloat(searchResult.start).toFixed(2)} - {parseFloat(searchResult.end).toFixed(2)} seconds:
-              </strong>{" "}
-              {searchResult.text}
-            </p>
-          </div>
-        ) : (
-          query && !isUploading && resultMessage === "No result found." && (
-            <p className="message">No result found.</p>
-          )
-        )}
+        <div className="search-result">
+          <p>
+            <strong>
+              {parseFloat(searchResult.timestamp).toFixed(2)} seconds:
+            </strong>{" "}
+            {searchResult.text}
+          </p>
+        </div>
+      ) : (
+        query && !isUploading && resultMessage === "No result found." && (
+          <p className="message">No result found.</p>
+        )
+      )}
+
       </section>
 
       <style jsx>{`
