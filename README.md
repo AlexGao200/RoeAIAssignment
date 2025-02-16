@@ -36,6 +36,6 @@ To build and run the project, execute:
 docker compose up --build  
 ```
    
-The backend will be accessible on http://localhost:8000
-The frontend will be accessible on http://localhost:3000
+- The backend will be accessible on http://localhost:8000
+- The frontend will be accessible on http://localhost:3000
 
