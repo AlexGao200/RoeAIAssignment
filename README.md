@@ -1,18 +1,43 @@
-# This projectallows users to upload a video, transcribe its content using OpenAI’s Whisper, and perform semantic searches over the transcript using a Sentence Transformer model. I used Python Django for the backend and Next.js for the frontend. Containerization is achieved using Docker, and Poetry is used for managing Python dependencies.
+# Video Semantic Search Application
+
+This project allows users to upload a video, transcribe its content using OpenAI’s Whisper, and perform semantic searches over the transcript using a Sentence Transformer model. I used Python Django for the backend and Next.js for the frontend. Containerization is achieved using Docker, and Poetry is used for managing Python dependencies.
 
 ## Features
-Video Upload & Transcription: The backend accepts video uploads and uses OpenAI’s Whisper to generate a transcription and timestamped segments. It also uses 
-OpenCV for frame extraction combined with an image captioning model BLIP to capture visual content and generate additional embeddings. Transcripts and segments are stored in the database, alongside with frame captions. 
-Semantic Search: The transcript is encoded into embeddings using the SentenceTransformer model all-MiniLM-L6-v2.
-Cosine similarity is computed between the query and each transcript segment combined with the frame caption.
-A threshold cosine similarity score of 0.5 is used to determine whether a valid search result exists.
 
-## Future Enhancements:
-Integrate OpenCV for frame extraction combined with an image captioning model such as BLIP to capture visual content and generate additional embeddings.
-For the bonus questions, I would Django Channels to create a WebSocket consumer that handles chat messages.
-For production deployment, the plan is to deploy on AWS and use mongodb to store the videos and use Elasticsearch for vector store and semantic search, with a potential upgrade to use Azure Video Indexer if the budget allows.
+### Video Upload & Transcription
+- **Upload:** The backend accepts video uploads.
+- **Transcription:** OpenAI’s Whisper generates a transcription and timestamped segments.
+- **Frame Extraction & Captioning:**  
+  - OpenCV extracts frames from the video.
+  - An image captioning model (BLIP) generates captions for the frames.
+- **Data Storage:**  
+  - Transcripts and segments are stored in the database.
+  - Frame captions are stored alongside the transcript segments.
 
-## Running project with Docker Compose:
+### Semantic Search
+- **Embeddings:**  
+  - The transcript is encoded using the SentenceTransformer model `all-MiniLM-L6-v2`.
+- **Similarity Computation:**  
+  - Cosine similarity is computed between the query and each transcript segment combined with the frame caption.
+- **Threshold:**  
+  - A threshold cosine similarity score of **0.5** is used to determine whether a valid search result exists.
+
+## Future Enhancements
+- **Frame Extraction & Captioning:**  
+  - Integrate OpenCV for frame extraction combined with an image captioning model such as BLIP to capture visual content and generate additional embeddings.
+- **Chat Interaction:**  
+  - Use Django Channels to create a WebSocket consumer that handles chat messages.
+- **Production Deployment:**  
+  - Deploy on AWS.
+  - Use MongoDB to store videos.
+  - Use Elasticsearch as the vector store for semantic search.
+  - Potential upgrade to use Azure Video Indexer if the budget allows.
+
+To build and run the project, execute:
+
+```bash
 docker compose up --build
-The backend will be accessible on http://localhost:8000 and the frontend on http://localhost:3000.
+
+The backend will be accessible on http://localhost:8000
+The frontend will be accessible on http://localhost:3000
 
